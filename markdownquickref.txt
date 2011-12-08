@@ -1,0 +1,265 @@
+markdownquickref.txt	For Vim version 7.3	Last change: 2011 December 8
+
+
+            MARKDOWN SYNTAX QUICK REFERENCE     by Stephen Hay
+
+
+                                                 *mdref* *markdownquickref*
+This file briefly summarizes normal Markdown syntax, and can be used as a
+quick reference. For more detail, please refer to John Gruber's original
+Markdown documentation at http://daringfireball.net/projects/markdown/syntax.
+This file is not intended to be an exhaustive reference of all things
+Markdown.
+
+BLOCK ELEMENTS~
+
+1. Paragraphs and Line Breaks       |md-par|
+2. Headers                          |md-header|
+3. Blockquotes                      |md-blockquote|
+4. Lists                            |md-lists|
+5. Code Blocks                      |md-code|
+6. Horizontal Rules                 |md-hr|
+
+SPAN (INLINE) ELEMENTS~
+
+7. Links                            |md-links|
+8. Emphasis                         |md-em|
+9. Code                             |md-code-inline|
+10. Images                          |md-img|
+
+MISCELLANEOUS~
+
+11. Backslash Escapes               |md-esc|
+12. Automatic Links                 |md-auto-links|
+
+13. Markdown info                   |md-info|
+
+==============================================================================
+1. Paragraphs and Line Breaks                           *md-par*
+
+Paragraph~
+
+One or more consecutive lines of text, separated by one or more blank lines.
+(A blank line is any line that looks like a blank line — a line containing
+nothing but spaces or tabs is considered blank.) Normal paragraphs should not
+be indented with spaces or tabs.  
+>
+    This is a paragraph.
+
+    This is another paragraph.
+<
+Line break (<BR />)~
+
+end a line with two or more spaces.
+>
+    This is a line before a manual break.  
+    This is a line after a manual break.
+<
+
+==============================================================================
+2. Headers                                              *md-header*
+
+Setext-style headers~
+>
+    This is an H1
+    =============
+
+    This is an H2
+    -------------
+<
+Any number of underlining =’s or -’s will work.
+
+Atx-style headers~
+>
+    # This is an H1
+
+    ## This is a H2
+
+    ### This is an H3
+<
+Atx-style headers can be optionally closed:
+>
+    # Optional closed heading 1 #
+    ## Optional closed heading 2 ##
+<
+==============================================================================
+3. Blockquotes                                          *md-blockquote*
+>
+    > Email-style angle brackets
+    > are used for blockquotes.
+
+    > > And, they can be nested.
+
+    > #### Headers in blockquotes
+    > 
+    > * You can quote a list.
+    > * Etc.
+<
+==============================================================================
+4. Lists                                                *md-lists*
+
+Ordered, without paragraphs~
+>
+    1. Item 1
+    2. item 2
+<
+Unordered, with paragraphs~
+>
+    *   A list item
+
+        With a paragraph.
+
+    *   Another list item.
+<
+Nested~
+>
+    -   One
+        - Two
+    -   Three
+        1. Item
+        2. Item
+            * Another item
+        3. Item
+    -   Item
+<
+==============================================================================
+5. Code Blocks                                          *md-code*
+
+Indent every line of a code block by at least 4 spaces or 1 tab.
+>
+    This is a normal paragraph
+    
+        This is a preformatted
+        code block.
+<
+==============================================================================
+6. Horizontal Rules                                     *md-hr*
+
+Three or more dashes or asterisks.
+>
+    ---
+
+    ***
+<
+
+==============================================================================
+7. Links                                                *md-links*
+
+Title attributes are optional.
+
+Inline~
+>
+    [link text](URL "title attribute")
+
+    An [example](http://www.example.com "title attribute")
+<
+Reference Style~
+>
+    An [example][id]. Then, anywhere
+    else in the doc, define the link:
+
+      [id]: http://example.com/  "Title"
+<
+==============================================================================
+8. Emphasis                                             *md-em*
+>
+    *italic* **bold**
+    _italic_ __bold__
+<
+==============================================================================
+9. (Inline) Code                                        *md-code-inline*
+>
+    Inline `<code>` is delimted by backticks.
+
+    Literal backticks are included like `` `this` ``.    
+<
+==============================================================================
+10. Images                                              *md-img*
+
+Title attributes are optional.
+
+Inline~
+>
+    ![alt text](/path/img.jpg "Title")    
+<
+Reference Style~
+>
+    ![alt text][id]
+
+    [id]: /url/to/img.jpg "Title"
+<
+
+==============================================================================
+11. Backslash Escapes                                   *md-esc*
+>
+    \*literal asterisks\*
+<
+Markdown provides backslash escapes for the following characters:
+
+\   backslash
+`   backtick
+*   asterisk
+_   underscore
+{}  curly braces
+[]  square brackets
+()  parentheses
+#   hash mark
++   plus sign
+-   minus sign (hyphen)
+.   dot
+!   exclamation mark
+
+==============================================================================
+12. Automatic Links                                     *md-auto-links*
+
+Surround the URL or email address with angle brackets.
+>
+    <http://example.com/>
+<
+becomes:
+>
+    <a href="http://example.com/">http://example.com/</a>
+<
+and
+>
+    <address@example.com>
+<
+becomes
+>
+    <a href="&#x6D;&#x61;i&#x6C;&#x74;&#x6F;:&#x61;&#x64;&#x64;&#x72;&#x65;
+    &#115;&#115;&#64;&#101;&#120;&#x61;&#109;&#x70;&#x6C;e&#x2E;&#99;&#111;
+    &#109;">&#x61;&#x64;&#x64;&#x72;&#x65;&#115;&#115;&#64;&#101;&#120;&#x61;
+    &#109;&#x70;&#x6C;e&#x2E;&#99;&#111;&#109;</a>
+<
+which will render in a browser as a clickable link to “address@example.com”.
+This is an attempt at obscuring the address from spam robots, and won't work
+everywhere. When it does work, it most likely will only work temporarily. 
+
+==============================================================================
+13. Markdown info                                       *md-info*
+
+Markdown is free software, available under the terms of a BSD-style open
+source license.
+
+This quick reference uses and/or expands upon examples found at
+http://daringfireball.net/projects/markdown/syntax and
+http://daringfireball.net/projects/markdown/dingus
+
+Markdown is:
+
+Copyright © 2004, John Gruber 
+http://daringfireball.net/ 
+All rights reserved.
+
+Please see the license at http://daringfireball.net/projects/markdown/license
+
+The official website is http://daringfireball.net/projects/markdown/
+
+==============================================================================
+Markdown Quick Reference for Vim Help by Stephen Hay
+http://github.com/stephenhay/markdownquickref
+
+Twitter: @stephenhay
+http://www.the-haystack.com
+
+vim:tw=78:ts=8:ft=help:norl:
